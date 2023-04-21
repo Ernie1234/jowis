@@ -1,0 +1,92 @@
+.section {
+  padding: $sm-padding $bd-padding;
+
+  &__wrapper {
+    margin-bottom: $xs-padding;
+    display: flex;
+  }
+
+  &__main--image {
+    width: 18rem;
+    height: 18rem;
+    background-color: red;
+  }
+  &__secondary--image {
+    display: flex;
+    flex: 1;
+    margin-left: $sm-padding;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 18rem;
+    gap: $xs-padding;
+    overflow: hidden;
+
+    &:hover {
+      .section__container--1,
+      .section__container--2 {
+        opacity: 0;
+        transform: translateX(100);
+        transform-origin: left;
+      }
+      .section__text {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__container--1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+
+    transition: all 01s;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__container--2 {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+
+    transition: all 01s;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__img--1 {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__img--2 {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__img--3 {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__text {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+
+    transition: all 01s;
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  &__text--header {
+    color: $color-secondary;
+    font-size: 3.5rem;
+    padding-bottom: 1.5rem;
+  }
+  &__text--content {
+    color: $color-white;
+    font-size: 1.4rem;
+  }
+}

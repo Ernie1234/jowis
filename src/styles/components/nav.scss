@@ -1,0 +1,48 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-white;
+  background-color: $color-primary;
+  padding: 1.5rem $bd-padding;
+
+  &__logo-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    text-decoration: none;
+  }
+  &__logo--img {
+    width: 3rem;
+  }
+  &__logo--text {
+    font-size: 3rem;
+    color: $color-white;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    // background-color: dodgerblue;
+  }
+
+  &__link:link,
+  &__link:visited {
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    font-family: $font-primary;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1.5rem;
+    display: block;
+    transition: all 0.2s;
+  }
+
+  &__link:hover:not(&__link--active),
+  &__link:active:not(&__link--active) {
+    transform: translateY(-3px);
+    background-color: rgba(#fff, 0.05);
+  }
+}

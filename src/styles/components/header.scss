@@ -1,0 +1,27 @@
+.header {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-secondary, 0),
+      rgba($color-white, 0)
+    ),
+    url("../../images/headerImage.png");
+  background-position: top;
+  background-size: cover;
+  height: 75vh;
+  padding: $bd-padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__text {
+    font-size: 6rem;
+  }
+  &__text--primary {
+    color: $color-black;
+    font-size: inherit;
+  }
+  &__text--secondary {
+    font-size: inherit;
+    color: $color-primary;
+  }
+}

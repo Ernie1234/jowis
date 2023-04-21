@@ -1,0 +1,53 @@
+// COLOR VARIABLES
+$color-primary: #8d0b9f;
+$color-primary-dark: #b28451;
+$color-secondary: #ffc701;
+$color-green: #6ccb5d;
+$color-green-light: #9cb380;
+$color-red: #c73e1d;
+
+$color-black: #000;
+$color-white: white;
+
+// FONT VARIABLES
+$font-primary: "Fontastique", sans-serif;
+$font-display: "Nexa", sans-serif;
+
+//PADDING AND MARGINS
+$bd-padding: 12rem;
+$lg-padding: 8rem;
+$md-padding: 6rem;
+$sm-padding: 4rem;
+$xs-padding: 2rem;
+
+//RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; //1200px
+$bp-large: 62.5em; //1000px
+$bp-medium: 50em; //800px
+$bp-small: 37.5em; //600px
+
+@import url("https://fonts.cdnfonts.com/css/fontastique");
+@import url("https://fonts.cdnfonts.com/css/nexa-bold");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-black;
+  font-weight: 300;
+  line-height: 1.6;
+}

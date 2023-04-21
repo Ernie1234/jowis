@@ -1,0 +1,99 @@
+.btn,
+.btn:visited {
+  background-color: $color-secondary;
+  color: $color-black;
+  border: none;
+  border-radius: 0;
+  font-family: $font-primary;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 1.3rem 2.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $color-green;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
+  &:active,
+  &:focus {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+}
+
+// FORM BUTTON STYLING
+.btn2,
+.btn2:visited {
+  background-color: $color-white;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: 0;
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding: 1.3rem 2.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
+
+// HOME SECTION STYLING
+.section__header {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.7rem;
+  font-size: 2rem;
+  font-family: $font-display;
+  font-weight: 700;
+  color: #333;
+  padding: $xs-padding;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $xs-padding;
+
+  &__title {
+    font-size: 3rem;
+    color: #333;
+  }
+
+  &__icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: $md-padding;
+  }
+  &__icon-wrapper {
+    background-color: #333;
+    display: flex;
+    margin-left: 2rem;
+    padding: 1rem;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #494949;
+
+      .footer__icon {
+        transform: scale(0.8);
+      }
+    }
+  }
+
+  &__icon {
+    color: $color-white;
+    display: inline-block;
+    font-size: 2rem;
+    transition: all 0.2s;
+  }
+}
