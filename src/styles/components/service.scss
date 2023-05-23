@@ -1,0 +1,69 @@
+.service__container {
+  min-height: calc(100vh - 8.19rem);
+  height: 100%;
+  background-color: rgba($color-primary, 0.16);
+  padding: $sm-padding $bd-padding;
+}
+
+.head {
+  &__title {
+    text-transform: capitalize;
+    color: $color-primary;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    position: relative;
+    margin-left: 5rem;
+    padding-left: 2rem;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 5rem;
+      height: 0.15rem;
+      background-color: rgba($color-primary, 0.7);
+      position: absolute;
+      left: -5rem;
+      top: 50%;
+    }
+  }
+  &__desc {
+    color: rgba($color-primary, 0.8);
+    font-size: 2rem;
+  }
+}
+
+.box {
+  display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  //   gap: 1.5rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-gap: 1rem;
+}
+.card {
+  min-height: 35rem;
+  background-color: rgba($color-primary, 0.3);
+  padding: 4rem;
+  color: $color-primary;
+  border-bottom: 0.3rem solid #ffffff;
+  border-radius: 0.3rem;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: $color-primary;
+    color: #fff;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    color: $color-primary;
+    font-size: 3rem;
+    font-family: "Helvetica Neue", sans-serif;
+  }
+  &__subtitle {
+    color: #fff;
+    font-size: 1.3rem;
+    font-family: "Helvetica Neue", sans-serif;
+  }
+}
