@@ -8,7 +8,7 @@ import { IoAnalyticsSharp } from "react-icons/io5";
 function Service() {
   return (
     <div className="service__container">
-      <HeaderTitle />
+      <HeaderTitle title="services." subTitle="Our services for clients" />
       <div className="box">
         <Card
           icon={<MdOutlineWeb size={35} />}

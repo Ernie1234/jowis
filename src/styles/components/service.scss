@@ -8,7 +8,7 @@
 .head {
   &__title {
     text-transform: capitalize;
-    color: $color-primary;
+    color: $color-primary-dark;
     font-family: "Helvetica Neue", sans-serif;
     font-size: 4.5rem;
     line-height: 1.1;
@@ -29,7 +29,11 @@
   }
   &__desc {
     color: rgba($color-primary, 0.8);
-    font-size: 2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: $font-display;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
   }
 }
 
