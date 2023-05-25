@@ -1,4 +1,6 @@
 import React from "react";
+
+import { projects } from "../data/projectData";
 import HeaderTitle from "./HeaderTitle";
 import Project from "./Project";
 import ContactBase from "./ContactBase";
@@ -8,11 +10,14 @@ function Projects() {
     <div className="project__container">
       <HeaderTitle title="Project." subTitle={`Things we've made`} />
       <div className="project__box">
-        <Project title="the vintage" url="https://www.facebook.com" />
-        <Project title="the vintage" url="https://www.facebook.com" />
-        <Project title="the vintage" url="https://www.facebook.com" />
-        <Project title="the vintage" url="https://www.facebook.com" />
-        <Project title="the vintage" url="https://www.facebook.com" />
+        {projects.map((project) => (
+          <Project
+            key={project.id}
+            title={project.title}
+            url={project.url}
+            pic={project.pics}
+          />
+        ))}
       </div>
       <div className="project__footer">
         <ContactBase />

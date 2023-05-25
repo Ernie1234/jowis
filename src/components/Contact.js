@@ -1,11 +1,12 @@
 import React from "react";
 import AppForm from "./AppForm";
-import ContactHeader from "./ContactHeader";
+
+import HeaderTitle from "./HeaderTitle";
 
 function Contact() {
   return (
     <div className="contact-container">
-      <ContactHeader />
+      <HeaderTitle title="contact us" subTitle="What can we do you?" />
       <AppForm />
     </div>
   );

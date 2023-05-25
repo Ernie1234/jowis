@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import AppButton from "./AppButton";
 
 function ContactBase() {
   return (
@@ -14,10 +16,9 @@ function ContactBase() {
           sunt!
         </p>
       </div>
-      <button class="project_btn">
-        <span class="project_btn__visible">Contact Us</span>
-        <span class="project_btn__invisible">get started with us</span>
-      </button>
+      <Link to="/contact">
+        <AppButton mainText="Contact Us" secText="Get started with us" />
+      </Link>
     </>
   );
 }

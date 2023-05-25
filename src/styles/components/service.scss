@@ -1,8 +1,16 @@
 .service__container {
-  min-height: calc(100vh - 8.19rem);
+  min-height: calc(100vh - 7rem);
   height: 100%;
   background-color: rgba($color-primary, 0.16);
   padding: $sm-padding $bd-padding;
+
+  @media only screen and (max-width: $bp-medium) {
+    min-height: calc(100vh - 11rem);
+    padding: $xs-padding;
+  }
+  @media only screen and (max-width: $bp-small) {
+    min-height: calc(100vh - 9rem);
+  }
 }
 
 .head {

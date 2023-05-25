@@ -1,20 +1,26 @@
 .project {
   &__container {
-    min-height: calc(100vh - 8.19rem);
+    min-height: calc(100vh - 7rem);
     height: 100%;
     background-color: rgba($color-primary, 0.16);
     padding: $sm-padding $bd-padding;
 
     @media only screen and (max-width: $bp-medium) {
+      min-height: calc(100vh - 11rem);
       padding: $xs-padding;
     }
+    @media only screen and (max-width: $bp-small) {
+      min-height: calc(100vh - 9rem);
+    }
   }
+
   &__box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
     grid-gap: 2rem;
     margin-top: 4rem;
   }
+
   &__image {
     background-color: rgba($color-primary, 0.25);
     padding: $sm-padding $xs-padding;
@@ -24,7 +30,8 @@
   }
   &__img {
     width: 100%;
-    grid-row: 1 / 2;
+    object-fit: cover;
+    grid-row: 1 / span 1;
     grid-column: 1 / -1;
     box-shadow: rgba(50, 50, 93, 0.25) 0 1.5rem 3rem -0.6rem,
       rgba($color-black, 0.3) 0 0.9rem 1.8rem -0.9rem;
@@ -102,6 +109,11 @@
     gap: 15rem;
 
     @media only screen and (max-width: $bp-medium) {
+      padding: $sm-padding;
+      gap: 5rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -110,9 +122,6 @@
 
     &-text {
       grid-column: 1 / span 1;
-
-      @media only screen and (max-width: $bp-medium) {
-      }
     }
     &--title {
       font-size: 5rem;

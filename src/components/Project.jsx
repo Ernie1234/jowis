@@ -1,12 +1,11 @@
 import React from "react";
 
-import Image from "../images/1.jpg";
-
-function Project({ title, url }) {
+function Project({ title, url, pic }) {
+  // console.log(pic);
   return (
     <div className="project__card">
       <div className="project__image">
-        <img src={Image} alt="project-images" className="project__img" />
+        <img src={`${pic}`} alt="project-images" className="project__img" />
       </div>
       <div className="project__wrapper">
         <h3 className="project__title">{title}</h3>
