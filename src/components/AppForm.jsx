@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-hot-toast";
 
 function AppForm() {
   const form = useRef();
@@ -7,44 +8,38 @@ function AppForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
-        form.current,
-        process.env.REACT_APP_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          console.log("message sent");
+    toast.promise(
+      emailjs
+        .sendForm(
+          process.env.REACT_APP_SERVICE_ID,
+          process.env.REACT_APP_TEMPLATE_ID,
+          form.current,
+          process.env.REACT_APP_PUBLIC_KEY
+        )
+        .then(
+          (result) => {
+            // toast.loading("Waiting for the action to complete...");
+            // toast.success("Sucess!");
+            console.log(result.text);
+            console.log("message sent");
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        ),
+      {
+        loading: "Loading...",
+        success: "Message successful!",
+        error: (err) =>
+          err?.response?.data?.msg ?? "Something is wrong, please try again",
+      },
+      {
+        style: {
+          fontSize: "20px",
         },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      }
+    );
   };
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   detail: "",
-  // });
-
-  // function handleChange(event) {
-  //   event.preventDefault();
-  //   setFormData((prevFormData) => {
-  //     return {
-  //       ...prevFormData,
-  //       [event.target.name]: event.target.value,
-  //     };
-  //   });
-  // }
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   console.log(formData);
-  // };
   return (
     <>
       <form className="form" ref={form} onSubmit={sendEmail}>
@@ -54,8 +49,6 @@ function AppForm() {
               type="text"
               className="form__input"
               placeholder="Full Name"
-              // onChange={handleChange}
-              // value={formData.name}
               name="user_name"
               id="name"
               required
@@ -69,8 +62,6 @@ function AppForm() {
               type="email"
               className="form__input"
               placeholder="E-mail"
-              // onChange={handleChange}
-              // value={formData.email}
               name="user_email"
               id="mail"
               required
@@ -85,8 +76,6 @@ function AppForm() {
             type="text"
             className="form__input"
             placeholder="Project Details"
-            // onChange={handleChange}
-            // value={formData.detail}
             name="message"
             id="detail"
             rows={5}
