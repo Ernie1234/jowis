@@ -18,10 +18,9 @@ function AppForm() {
         )
         .then(
           (result) => {
-            // toast.loading("Waiting for the action to complete...");
-            // toast.success("Sucess!");
             console.log(result.text);
             console.log("message sent");
+            e.target.reset();
           },
           (error) => {
             console.log(error.text);
