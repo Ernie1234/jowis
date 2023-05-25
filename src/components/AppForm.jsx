@@ -9,10 +9,10 @@ function AppForm() {
 
     emailjs
       .sendForm(
-        "service_bbwe2z4",
-        "template_r4ygdcm",
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
         form.current,
-        "PRR1bGz23IfTLrl9Q"
+        process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
         (result) => {
