@@ -1,31 +1,32 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 import Button1 from "./Button1";
 
-function NavBar() {
-  const [sticky, setSticky] = useState(false);
-  const [navHeight, setNavHeight] = useState(0);
+import { CgMenuRight } from "react-icons/cg";
+import { MdOutlineClose } from "react-icons/md";
 
-  const navbar = useRef();
-  const navbarOffset = useRef();
+function NavBar() {
+  const [stickyClass, setStickyClass] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const value = navbarOffset.current.clientHeight;
-      setSticky(window.pageYOffset >= value);
+    window.addEventListener("scroll", stickNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", stickNavbar);
     };
-
-    window.addEventListener("scroll", handleScroll);
-
-    setNavHeight(navbar.current.clientHeight);
-
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      windowHeight > 70 ? setStickyClass("nav__fixed") : setStickyClass("");
+    }
+  };
 
   return (
-    <div className="navbar" ref={navbarOffset}>
-      <nav ref={navbar} className={`nav ${sticky && "nav__fixed"}`}>
+    <div className="navbar">
+      <nav className={`nav ${stickyClass}`}>
         <Link to="/" className="nav__logo-container">
           <img src={Logo} className="nav__logo--img" alt="Jowis logo" />
 
@@ -54,9 +55,49 @@ function NavBar() {
             </Link>
           </li>
         </ul>
-        <Button1 title="Get a Quote" />
+        <span className="navbar__btn">
+          <Button1 title="Get a Quote" />
+        </span>
+
+        <div className="navbar__hamburger">
+          <CgMenuRight size={25} onClick={() => setIsOpen(true)} />
+        </div>
+        {isOpen && (
+          <div className="navigation">
+            <MdOutlineClose
+              size={30}
+              onClick={() => setIsOpen(false)}
+              className="navigation__close"
+            />
+            <ul className="navigation__list">
+              <li className="navigation__item" onClick={() => setIsOpen(false)}>
+                <Link
+                  to="/"
+                  onClick={() => setIsOpen(false)}
+                  className="navigation__link"
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="navigation__item" onClick={() => setIsOpen(false)}>
+                <Link to="/contact" className="navigation__link">
+                  Contact Us
+                </Link>
+              </li>
+              <li className="navigation__item" onClick={() => setIsOpen(false)}>
+                <Link to="/services" className="navigation__link">
+                  Service
+                </Link>
+              </li>
+              <li className="navigation__item" onClick={() => setIsOpen(false)}>
+                <Link to="/projects" className="navigation__link">
+                  Project
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </nav>
-      <div style={sticky ? { marginTop: navHeight } : {}}></div>
     </div>
   );
 }

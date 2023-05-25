@@ -1,39 +1,62 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 function AppForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    detail: "",
-  });
+  const form = useRef();
 
-  function handleChange(event) {
-    event.preventDefault();
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [event.target.name]: event.target.value,
-      };
-    });
-  }
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    console.log(formData);
+    emailjs
+      .sendForm(
+        "service_bbwe2z4",
+        "template_r4ygdcm",
+        form.current,
+        "PRR1bGz23IfTLrl9Q"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("message sent");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   detail: "",
+  // });
+
+  // function handleChange(event) {
+  //   event.preventDefault();
+  //   setFormData((prevFormData) => {
+  //     return {
+  //       ...prevFormData,
+  //       [event.target.name]: event.target.value,
+  //     };
+  //   });
+  // }
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  //   console.log(formData);
+  // };
   return (
     <>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" ref={form} onSubmit={sendEmail}>
         <div className="form-user--details">
           <div className="form__group">
             <input
               type="text"
               className="form__input"
               placeholder="Full Name"
-              onChange={handleChange}
-              value={formData.name}
-              name="name"
+              // onChange={handleChange}
+              // value={formData.name}
+              name="user_name"
               id="name"
               required
             />
@@ -46,9 +69,9 @@ function AppForm() {
               type="email"
               className="form__input"
               placeholder="E-mail"
-              onChange={handleChange}
-              value={formData.email}
-              name="email"
+              // onChange={handleChange}
+              // value={formData.email}
+              name="user_email"
               id="mail"
               required
             />
@@ -62,9 +85,9 @@ function AppForm() {
             type="text"
             className="form__input"
             placeholder="Project Details"
-            onChange={handleChange}
-            value={formData.detail}
-            name="detail"
+            // onChange={handleChange}
+            // value={formData.detail}
+            name="message"
             id="detail"
             rows={5}
             required
@@ -74,7 +97,7 @@ function AppForm() {
           </label>
         </div>
         <div className="form-btn--submit__wrapper">
-          <button className="form-btn__submit" type="submit">
+          <button className="form-btn__submit" type="submit" value="Send">
             Submit
           </button>
         </div>
